@@ -85,7 +85,7 @@ function Navbar() {
 
       <nav>
         <div className="logo">
-          <Link to="/">kutchina</Link>
+          <Link to="/">kutchinarapp</Link>
         </div>
         <ul className="nav__links">
           <li className="nav__item">

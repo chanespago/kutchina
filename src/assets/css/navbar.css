@@ -19,14 +19,13 @@ nav {
   align-items: center;
   align-content: center;
   position: relative;
-  top: 5px;
   left: 50px;
 }
 .logo > a {
   text-decoration: none;
   cursor: pointer;
   color: orangered;
-  font-size: 50px;
+  font-size: 48px;
   font-weight: bold;
 }
 .logo > a:focus {
@@ -61,6 +60,25 @@ nav {
   font-size: 32px;
 }
 
+@media screen and (max-width:768px) {
+  .logo {
+    left: 20px;
+  }
+  .logo > a {
+    font-size: 40px;
+  }
+  .nav__item {
+    height: 60px;
+    padding: 0px 10px;
+  }
+  .nav__item > a {
+    font-size: 14px;
+  }
+  .nav__item > span > i {
+    font-size: 18px;
+  }
+}
+
 @media screen and (max-width:512px) {
   .logo {
     left: 20px;
@@ -73,10 +91,23 @@ nav {
     padding: 0px 10px;
   }
   .nav__item > a {
-    font-size: 14px;
+    font-size: 12px;
   }
   .nav__item > span > i {
-    font-size: 18px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .Overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+  }
+  .Modal {
+    left: 0;
+    width: calc(100% - 40px)  !important;
+    background-color: aquamarine;
   }
 }
 
@@ -93,6 +124,7 @@ nav {
   font-family: 'Varela Round', sans-serif;
   padding: 20px;
   z-index: 98;
+  overflow-x: hidden;
 }
 .Overlay {
   position: fixed;
@@ -101,6 +133,7 @@ nav {
   bottom: 0;
   left: 0;
   background-color: transparent;
+  overflow-x: hidden;
   z-index: 97;
 }
 .cart__header {

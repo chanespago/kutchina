@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { HashRouter, Switch, Route, Link } from "react-router-dom";
 
 import Menu from '../Pages/Menu.js';
@@ -6,8 +6,28 @@ import Menu from '../Pages/Menu.js';
 import '../assets/css/main.css'
 import '../assets/css/home.css'
 
+import Adobo from '../assets/images/adobo.jpg';
+import Kaldereta from '../assets/images/kaldereta.jpg';
+import Sinigang from '../assets/images/sinigang.jpg';
+import KareKare from '../assets/images/karekare.jpg';
+
+import Section from '../components/Section.js';
+import Card from '../components/Card.js';
+
+
 function Home() {
   
+  const topPicks = [
+    {key:'adobo', prodImg:Adobo, prodAlt:Adobo, prodName: 'Chicken Adobo', prodPrice: '130.00'},
+    {key:'kaldereta', prodImg:Kaldereta, prodAlt:Kaldereta, prodName: 'Kaldereta', prodPrice: '180.00'},
+    {key:'sinigang', prodImg:Sinigang, prodAlt:Sinigang, prodName: 'Sinigang', prodPrice: '210.00'},
+    {key:'karekare', prodImg:KareKare, prodAlt:KareKare, prodName: 'Kare-kare', prodPrice: '180.00'}
+  ];
+
+  useEffect(()=>{
+    console.log(topPicks)
+  });
+
 
   return (
     <HashRouter  >
@@ -20,24 +40,42 @@ function Home() {
       
       <div className="wrapper">
 
-        <section className="sect__transp">
-          <div id="title__wrap" className="wrap">
-            <span className="section__title">Explore Filipino Cuisine more</span>
-            <span className="btn__Order">Order Now</span>
-          </div>
-          <div className="div__opaq"></div>
-        </section>
+        <Section 
+          titleClass="fdir__col"
+          titleContent={
+            <>
+            <span className='section__title'>Taste more Filipino Cuisine</span>
+            <span className='btn__Order'><Link to='/menu'>Order Now</Link></span>
+            </>
+          }
+          bodyContent=""
+        />
 
-        <section className="sect__transp">
-          <div id="topDeal__wrap" className="wrap">
-            <span>Top Picks</span>
-            <div id="deal__nav">
+        <Section
+          titleClass="justicont__space__between"
+          titleContent={
+            <>
+              <span className="section__subTitle">Top Picks</span>
               <Link to="/menu">View Menu</Link>
-              <span><i className='bx bx-chevron-left' ></i></span>
-              <span><i className='bx bx-chevron-right' ></i></span>
-            </div>
-          </div>
-        </section>
+            </>
+          }
+          bodyContent={
+            <>
+              {
+                topPicks.map(pick => (
+                  <Card 
+                    key={pick.key}
+                    cardImg={pick.prodImg}
+                    cardAltImg={pick.prodAlt}
+                    cardInfo={pick.prodName}
+                    cardPrice={pick.prodPrice}
+                  />
+                ))
+              }
+            </>
+          }
+        />
+
 
       </div>
     </HashRouter >
