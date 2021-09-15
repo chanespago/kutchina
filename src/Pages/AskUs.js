@@ -1,10 +1,13 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 
 import Section from '../components/Section.js';
 import Bar from '../components/Bar.js';
+import Footer from '../components/Footer.js';
+import Jumbotron from '../components/Jumbotron.js';
 
 import '../assets/css/askus.css'
+
+
 
 function AskUs() {
   
@@ -21,7 +24,7 @@ function AskUs() {
     <div className="wrapper">
       {/* FAQs */}
       <Section
-        titleClass="justicont__space__between"
+        titleClass="fdir__col"
         titleContent={
           <>
             <span className="section__title">FAQs</span>
@@ -30,16 +33,7 @@ function AskUs() {
         }
         bodyContent={
           <>
-            <div className="jumbotron">
-              <div className="jumbotron__nav">
-                <Link to="/">
-                  <span className="jumbotron__nav__icon"><i className='bx bx-left-arrow-alt' ></i></span>
-                </Link>
-                <Link to="/">
-                  <span className="jumbotron__nav__label">Back</span>
-                </Link>
-              </div>
-              <div className="jumbotron__body">
+            <Jumbotron>
 
                 { freqAskQues.map(ques => (
                   <Bar 
@@ -50,31 +44,13 @@ function AskUs() {
                   />
                 )) }
 
-              </div>
-            </div>
+            </Jumbotron>
           </>
         }
       />
+      
       {/* Footer */}
-      <Section
-        titleClass="fdir__col mb-4"
-        titleContent={
-          <>
-            <Link to="/ask-us">Ask Us</Link>
-            <Link to="/contact-us">Contact Us</Link>
-            <Link to="/privacy-policy">Privacy Policy</Link>
-            <Link to="/terms-conditions">Terms & Conditions</Link>
-          </>
-        }
-        bodyContent={
-          <>  
-            <div className="footer">
-              <span id="footer_logo">kutchinarapp</span>
-              <span id="footer_description">All Rights Reserved © 2021</span>
-            </div>
-          </>
-        }
-      />
+      <Footer />
     </div>
   )
 }

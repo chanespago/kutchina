@@ -1,0 +1,13 @@
+.context__container {
+  padding: 10px 40px;
+}
+.context__container__text {
+  font-size: 14px;
+  margin: 10px 14px;
+}
+.context__container__header {
+  font-size: 16px;
+  margin: 20px 14px 10px;
+  font-weight: bold;
+  color: #ff4500;
+}

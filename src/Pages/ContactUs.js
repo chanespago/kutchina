@@ -1,59 +1,49 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 import Section from '../components/Section'
+import Footer from '../components/Footer'
+import Jumbotron from '../components/Jumbotron'
+
+import '../assets/css/contactus.css'
+
 
 function ContactUs() {
   return (
     <div className="wrapper">
-      <section>
-        <div className="sect__header">
-          <div className="wrap">
-            <div className="title__wrap">
-              <span className="section__title">Let's get connected!</span>
-            </div>
-          </div>
-        </div>
-        <div className="sect__body">
-          <div className="wrap">
-            <div className="body__wrap">
-            <div className="jumbotron">
-              <div className="jumbotron__nav">
-                <Link to="/">
-                  <span className="jumbotron__nav__icon"><i className='bx bx-left-arrow-alt' ></i></span>
-                </Link>
-                <Link to="/">
-                  <span className="jumbotron__nav__label">Back</span>
-                </Link>
-              </div>
-              <div className="jumbotron__body">
-                
-              </div>
-            </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Footer */}
+      {/* Contact Us */}
       <Section
-        titleClass="fdir__col mb-4"
+        titleClass="fdir__col"
         titleContent={
           <>
-            <Link to="/ask-us">Ask Us</Link>
-            <Link to="/contact-us">Contact Us</Link>
-            <Link to="/privacy-policy">Privacy Policy</Link>
-            <Link to="/terms-conditions">Terms & Conditions</Link>
+            <span className="section__title">Let's get connected!</span>
           </>
         }
         bodyContent={
-          <>  
-            <div className="footer">
-              <span id="footer_logo">kutchinarapp</span>
-              <span id="footer_description">All Rights Reserved © 2021</span>
-            </div>
+          <>
+            <Jumbotron>
+              {
+                <div className="form__container">
+                  <form className="contact__form">
+                    <label htmlFor="name">How can I address you?</label>
+                    <input type="text" placeholder="Name" />
+                    <label htmlFor="emailAddd">Your email address is</label>
+                    <input type="email" placeholder="youremail@domain.com" />
+                    <label htmlFor="message">How can I help you?</label>
+                    <textarea placeholder="Your message here"></textarea>
+                    <button className="btn" id="btn_send">Send Message</button>
+                  </form>
+                </div>
+              }
+            </Jumbotron>
           </>
         }
       />
+
+
+      {/* Footer */}
+      <Footer />
+      
     </div>
   )
 }

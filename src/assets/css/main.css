@@ -54,5 +54,8 @@ section {
   width: 100vw;
 }
 .mb-4 {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+}
+.btn {
+  background-color: #157293;
 }

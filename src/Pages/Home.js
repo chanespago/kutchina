@@ -1,6 +1,5 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { Link } from "react-router-dom";
-
 
 import '../assets/css/main.css'
 import '../assets/css/home.css'
@@ -12,7 +11,7 @@ import KareKare from '../assets/images/karekare.jpg';
 
 import Section from '../components/Section.js';
 import Card from '../components/Card.js';
-
+import Footer from '../components/Footer';
 
 function Home() {
   
@@ -33,7 +32,7 @@ function Home() {
           titleContent={
             <>
             <span className='section__title'>Explore more Filipino Cuisine</span>
-            <span className='btn__Order'><Link to='/menu'>Order Now</Link></span>
+            <span className='btn btn__Order'><Link to='/menu'>Order Now</Link></span>
             </>
           }
           bodyContent=""
@@ -62,25 +61,7 @@ function Home() {
           }
         />
         {/* Footer */}
-        <Section
-          titleClass="fdir__col mb-4"
-          titleContent={
-            <>
-              <Link to="/ask-us">Ask Us</Link>
-              <Link to="/contact-us">Contact Us</Link>
-              <Link to="/privacy-policy">Privacy Policy</Link>
-              <Link to="/terms-conditions">Terms & Conditions</Link>
-            </>
-          }
-          bodyContent={
-            <>  
-              <div className="footer">
-                <span id="footer_logo">kutchinarapp</span>
-                <span id="footer_description">All Rights Reserved © 2021</span>
-              </div>
-            </>
-          }
-        />
+        <Footer />
 
       </div>
   )

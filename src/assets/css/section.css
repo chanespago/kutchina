@@ -12,6 +12,7 @@
   padding: 40px;
   display: flex;
   width: 100%;
+  font-family: 'Varela Round', sans-serif;
 }
 .section__title {
   color: #fff;
@@ -24,6 +25,7 @@
   font-size: 30px;
   font-weight: bold;
 }
+
 .btn__Order > a {
   background-color: transparent;
   color: #fff;
@@ -32,7 +34,6 @@
 .btn__Order {
   width: 180px;
   padding: 12px;
-  background-color: #157293;
   color: #fff;
   font-weight: bold;
   font-size: 18px;
