@@ -9,13 +9,13 @@
   display: flex;
 }
 .title__wrap {
-  padding: 50px;
+  padding: 40px;
   display: flex;
   width: 100%;
 }
 .section__title {
   color: #fff;
-  font-size: 48px;
+  font-size: 52px;
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -71,13 +71,31 @@
 .body__wrap {
   background-color: transparent;
   padding: 20px;
-  min-height: 60px;
+  min-height: 30px;
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom:50px;
 }
+.footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+#footer_logo {
+  font-family: 'Sacramento', cursive;
+  text-decoration: none;
+  cursor: pointer;
+  color: orangered;
+  font-size: 32px;
+  font-weight: bold;
+}
+#footer_description{
+  font-weight: bold;
+}
+
 
 @media screen and ( max-width:768px ) {
   .wrap {
@@ -89,9 +107,7 @@
 
 @media screen and ( max-width: 425px ){
   .wrap {
-    width: 100vw;
-    padding-left: 20px;
-    padding-right: 20px;
+    width: 99vw;
   }
   .section__subTitle {
     font-size: 24px;
@@ -101,5 +117,17 @@
     font-size: 16px;
     text-decoration: none;
     margin-right: 10px;
+  }
+  .body__wrap {
+    padding: 0;
+    padding-top: 30px;
+    width: 100%;
+  }
+  .footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
   }
 }

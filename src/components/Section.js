@@ -1,18 +1,10 @@
 import React from 'react'
-import { HashRouter, Switch, Route, Link } from "react-router-dom";
-
-import Menu from '../Pages/Menu.js';
 
 import '../assets/css/section.css'
 
+
 function Section(props) {
   return (
-    <HashRouter>
-      <Switch>
-        <Route path="/menu" exact>
-          <Menu />
-        </Route>
-      </Switch>
       <section>
         <div className="sect__header">
           <div className="wrap">
@@ -27,7 +19,6 @@ function Section(props) {
           </div>
         </div>
       </section>
-    </HashRouter>
   )
 }
 

@@ -11,6 +11,7 @@
   margin: 12px;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 .product__image {
   position: relative;

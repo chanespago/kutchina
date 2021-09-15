@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
-import { HashRouter, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import Menu from '../Pages/Menu.js';
 
 import '../assets/css/main.css'
 import '../assets/css/home.css'
@@ -24,33 +23,22 @@ function Home() {
     {key:'karekare', prodImg:KareKare, prodAlt:KareKare, prodName: 'Kare-kare', prodPrice: '180.00'}
   ];
 
-  useEffect(()=>{
-    console.log(topPicks)
-  });
-
 
   return (
-    <HashRouter  >
 
-      <Switch>
-        <Route path="/menu" exact>
-          <Menu />
-        </Route>
-      </Switch>
-      
       <div className="wrapper">
-
+        {/* Header */}
         <Section 
           titleClass="fdir__col"
           titleContent={
             <>
-            <span className='section__title'>Taste more Filipino Cuisine</span>
+            <span className='section__title'>Explore more Filipino Cuisine</span>
             <span className='btn__Order'><Link to='/menu'>Order Now</Link></span>
             </>
           }
           bodyContent=""
         />
-
+        {/* Top Picks */}
         <Section
           titleClass="justicont__space__between"
           titleContent={
@@ -61,8 +49,7 @@ function Home() {
           }
           bodyContent={
             <>
-              {
-                topPicks.map(pick => (
+              { topPicks.map(pick => (
                   <Card 
                     key={pick.key}
                     cardImg={pick.prodImg}
@@ -70,15 +57,32 @@ function Home() {
                     cardInfo={pick.prodName}
                     cardPrice={pick.prodPrice}
                   />
-                ))
-              }
+                )) }
+            </>
+          }
+        />
+        {/* Footer */}
+        <Section
+          titleClass="fdir__col mb-4"
+          titleContent={
+            <>
+              <Link to="/ask-us">Ask Us</Link>
+              <Link to="/contact-us">Contact Us</Link>
+              <Link to="/privacy-policy">Privacy Policy</Link>
+              <Link to="/terms-conditions">Terms & Conditions</Link>
+            </>
+          }
+          bodyContent={
+            <>  
+              <div className="footer">
+                <span id="footer_logo">kutchinarapp</span>
+                <span id="footer_description">All Rights Reserved © 2021</span>
+              </div>
             </>
           }
         />
 
-
       </div>
-    </HashRouter >
   )
 }
 

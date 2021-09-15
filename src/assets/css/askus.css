@@ -1,0 +1,62 @@
+.jumbotron {
+  width: 100%;
+  height: 100%;
+}
+.jumbotron__nav {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  height: 60px;
+}
+.jumbotron__nav > a {
+  color: #ff4500;
+}
+.jumbotron__nav__icon,
+.jumbotron__nav__label {
+  font-family: 'Varela Round', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+.jumbotron__nav__icon {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.jumbotron__nav__label {
+  font-size: 20px;
+}
+.jumbotron__body {
+  width: 100%;
+  height: auto;
+}
+
+
+.bar {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+  border-bottom: solid 2px #ff4500;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.bar__number {
+  width: 50px;
+  font-size: 48px;
+  color: #ff4500;
+}
+.bar__number > span {
+  font-family: 'Monoton', cursive;
+}
+.bar__details {
+  width: calc(100% - 50px);
+}
+.bar__question {
+  font-weight: bold;
+  font-size: 18px;
+  color: #ff4500;
+  margin-bottom: 4px;
+}

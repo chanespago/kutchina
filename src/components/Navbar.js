@@ -5,9 +5,16 @@ import ReactModal from 'react-modal';
 import Home from '../Pages/Home.js';
 import Menu from '../Pages/Menu.js';
 import CheckOut from '../Pages/CheckOut.js';
+import OrderTrack from '../Pages/OrderTrack.js';
+import AskUs from '../Pages/AskUs.js';
+import ContactUs from '../Pages/ContactUs.js';
+import PrivacyPolicy from '../Pages/PrivacyPolicy.js';
+import TermsConditions from '../Pages/TermsConditions.js';
+import ScrollToTop from './ScrollToTop.js';
 
 import '../assets/css/navbar.css';
-import OrderTrack from '../Pages/OrderTrack.js';
+
+
 
 ReactModal.setAppElement('#root');
 function Navbar() {
@@ -21,9 +28,11 @@ function Navbar() {
   const handleCloseModal = () => {
     setShowModal(false);
   }
+
+
   return (
     <HashRouter >
-
+      <ScrollToTop />
       <Switch>
         <Route path="/" exact>
           <Home />
@@ -36,6 +45,18 @@ function Navbar() {
         </Route>
         <Route path="/checkout">
           <CheckOut />
+        </Route>
+        <Route path="/ask-us">
+          <AskUs />
+        </Route>
+        <Route path="/contact-us">
+          <ContactUs />
+        </Route>
+        <Route path="/privacy-policy">
+          <PrivacyPolicy />
+        </Route>
+        <Route path="/terms-conditions">
+          <TermsConditions />
         </Route>
       </Switch>
 
@@ -51,12 +72,14 @@ function Navbar() {
             <span id="cart__title">My Cart</span>
             <span onClick={handleCloseModal}><i className='bx bx-x'></i></span>
           </div>
+
           <div className="cart__body">
             <span id="cart__empty">You do not have an order yet.</span>
             <div id="cart__items">
 
             </div>
           </div>
+
           <div className="cart__footer">
             <div id="subTotal" className="info__div">
               <span className="checkOut__info">Sub Total</span>
