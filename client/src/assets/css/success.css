@@ -1,0 +1,97 @@
+#success_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 20px 10px;
+    background-color: #fff;
+}
+#success_header {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+#success_header > span{
+    font-size: 24px;
+}
+#success_body {
+    width: 100%;
+}
+#success_body_container {
+    width: 100%;
+}
+.success__row {
+    width : 100%;
+}
+.success__col_1 {
+    position: relative;
+    width: 100%;
+    display: block;
+}
+.success__col_2 {
+    position: relative;
+    width: 50%;
+    display: inline-block;
+}
+.success__col_3 {
+    position: relative;
+    width: 33%;
+    display: inline-block;
+}
+.success > p {
+    font-weight: bold;
+    color: #ff4500;
+}
+.success > p > span {
+    font-weight: 100;
+    color: #000;
+}
+table.customTable {
+    width: 100%;
+    background-color: #FFFFFF;
+    border-collapse: collapse;
+    border-width: 0px;
+    border-color: #FF4500;
+    border-style: solid;
+    color: #000000;
+  }
+  
+  table.customTable td, table.customTable th {
+    border-width: 0px;
+    border-color: #FF4500;
+    border-style: solid;
+    padding: 5px;
+  }
+  
+  table.customTable thead {
+    background-color: #FF4500;
+    color: #fff;
+  }
+  table.customTable tr > th {
+      text-align: left;
+  }
+
+  @media screen and (max-width: 425px) {
+    table.customTable td, table.customTable th {
+        font-size: 14px;
+      }
+  }
+
+  .btn__Save {
+      padding: 10px 20px;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 8px;
+      margin: 10px;
+  }
+  .btn__Close {
+    padding: 10px 20px;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    margin: 10px;
+  }

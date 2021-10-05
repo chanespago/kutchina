@@ -1,0 +1,28 @@
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+  }
+  #footer_logo {
+    font-family: 'Sacramento', cursive;
+    text-decoration: none;
+    cursor: pointer;
+    color: orangered;
+    font-size: 32px;
+    font-weight: bold;
+  }
+  #footer_description{
+    font-weight: bold;
+  }
+  
+  @media screen and ( max-width: 425px ){
+    .footer {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      width: 100%;
+    }
+  }

@@ -1,0 +1,42 @@
+.menu__container {
+    width: 100%;
+}
+.menu__header {
+    padding: 20px 10px;
+    margin-bottom: 10px;
+}
+.menu__header > span {
+    padding: 8px 15px;
+    margin: 0px 8px;
+    background-color: #ff4500;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.menu__header > span:hover {
+    color: #fff;
+    background-color: #157293;
+}
+.menu__body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width : 1285px) {
+    .menu__container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+    .menu__body {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+}

@@ -1,0 +1,113 @@
+.track__container {
+    /* background-color: aqua; */
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.track__header {
+    width: 50%;
+    margin-bottom: 10px;
+}
+.track__header > label {
+    display: block;
+    margin-bottom: 10px;
+}
+.track__form {
+    position: relative;
+    padding: 10px;
+    background-color: #fff;
+    display: flex;
+    border-radius: 8px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.track__form > input {
+    padding: 10px;
+    border: none;
+    margin-right: 4px;
+    width: calc(100% - 60px);
+    outline: none;
+}
+.track__form > span > i {
+    padding: 8px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.track__body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 50px;
+}
+.track__content {
+    display: flex;
+    padding: 30px;
+}
+.track__info {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    
+}
+.track__info > i {
+    font-size: 18px;
+}
+.track__info > span {
+    font-size: 12px;
+}
+.disabled {
+    background-color: #e2e2e2;
+    color: #f5f5f5;
+}
+.enabled {
+    background-color: #ff4500;
+    color: #fff;
+    box-shadow: 0 0 20px 5px #ff4500;
+	animation: orb 1.8s infinite;
+}
+
+@media screen and (max-width:768px) {
+    .track__container {
+        /* background-color: aqua; */
+        width: 100%;
+        padding: 10px;
+    }
+    .track__header {
+        width: calc(100% - 20px);
+        margin-bottom: 10px;
+    }
+    .track__header > label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .track__body {
+        width: calc(100% - 20px);
+        padding: 10px;
+    }
+    .track__content {
+        display: flex;
+        flex-direction: column;
+    }
+}
+  
+
+@keyframes orb {
+	0%,100% {
+		box-shadow: 0 0 5px 2px #ff4500;
+	}
+	50% {
+		box-shadow: 0 0 24px 4px #ff4500;
+	}
+}

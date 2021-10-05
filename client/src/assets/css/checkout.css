@@ -1,0 +1,126 @@
+#checkout_form {
+    /* background-color: aqua; */
+    width: 100%;
+    display: flex;
+}
+#checkout_container {
+    background-color: transparent;
+    padding: 10px;
+    width: 50%;
+}
+.checkout__information {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px;
+}
+.checkout__information > span {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff4500;
+    margin-bottom: 10px;
+}
+.checkout__information > label {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0px;
+}
+.checkout__input {
+    font-size: 14px;
+    padding: 15px;
+    outline: none;
+    border: 2px solid #ff4500;
+    font-family: 'Varela Round', sans-serif;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.checkout__input > label {
+    color: #2e2e2e;
+    font-size: 14px;
+    font-weight: 100;
+}
+.checkout__input > input {
+    border: 1px solid transparent;
+    outline: none;
+    font-size: 14px;
+    margin-left: 4px;
+}
+.checkout__information > input::placeholder {
+    color: #2e2e2e;
+}
+#payment_option {
+    font-size: 14px;
+    padding: 15px;
+    outline: none;
+    border: 2px solid #ff4500;
+    border-radius: 8px;
+    font-family: 'Varela Round', sans-serif;
+    margin-bottom: 10px;
+}
+#gcash_info {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+#place_order {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 24px;
+    transition: all 0.3s ease-in-out;
+}
+#checkout_cart {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    /* background-color: tomato; */
+    width: calc(50% - 40px);
+    padding: 20px;
+}
+.container {
+    display: flex;
+}
+.container > span {
+    margin-left: 10px;
+}
+.container > span > a {
+    color: #ff4500;
+}
+.container > #agree {
+    cursor: pointer;
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+    transform: scale(2);
+    padding: 10px;
+}
+
+@media screen and (min-width:768px) {
+    #checkout_container {
+        width: 60%;
+    }
+    #checkout_cart {
+        width: calc(40% - 20px);
+        padding: 10px;
+    }
+}
+@media screen and (max-width:768px) {
+    #checkout_form {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+    #checkout_container {
+        width: calc(100% - 20px);
+    }
+    #checkout_cart {
+        width: calc(100% - 20px);
+        padding: 10px;
+    }
+ }
