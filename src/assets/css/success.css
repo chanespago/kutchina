@@ -6,7 +6,7 @@
     align-items: center;
     align-content: center;
     padding: 20px 10px;
-    background-color: #fff;
+    background-color: transparent;
 }
 #success_header {
     position: relative;
@@ -50,7 +50,7 @@
 }
 table.customTable {
     width: 100%;
-    background-color: #FFFFFF;
+    background-color: transparent;
     border-collapse: collapse;
     border-width: 0px;
     border-color: #FF4500;

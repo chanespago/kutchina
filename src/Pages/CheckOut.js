@@ -6,11 +6,17 @@ import Footer from '../components/Footer.js';
 import CartContainer from '../components/CartContainer.js';
 
 import {addtocart} from '../components/addtocart.js';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-function CheckOut() {
+function CheckOut(props) {
 
-  let tempCart = addtocart.filter(element => element.prodQTY !== 0);
+  const history = useHistory();
+  const { cartItems, handleAddItemQuantity, handleRemoveItemQuantity } = props
+  const itemsPrice = cartItems.reduce((a,c) => a + c.transPrice * c.prodQTY, 0)
+  const taxPrice = itemsPrice * 0.05;
+  const shippingPrice = itemsPrice > 500 ? 0 : 50
+  const totalPrice = itemsPrice + taxPrice + shippingPrice
 
   var myCurrentDate = new Date();
   var firstCut = myCurrentDate.getFullYear()
@@ -33,9 +39,6 @@ function CheckOut() {
                   })
 
   const transactionID = "ktchnrpp-"+ firstCut + '-' + secondCut + '-'+ thirdCut;
-
-  const[subTotal,setSubtotal] = useState(0);
-  const[total,setTotal] = useState(0);
 
   const [option,setOption] = useState('cod');
   const[checked,setChecked] = useState("checked");
@@ -63,6 +66,18 @@ function CheckOut() {
   const handlePaymentDetails = (event) => setPaymentDetails(event.target.value)
 
   const getData = () => {
+
+    // Form Validation
+    if (fullName === null && emailAdd === null ) {
+      toast.error('Incomplete application', {position: toast.POSITION.BOTTOM_LEFT})
+    } else {
+      history.push({
+        pathname:"/order-successful",
+        state: {
+          id: transactionID
+        }
+      });
+    }
     
     const data = {
       dataTransactionID : transactionID,
@@ -73,14 +88,16 @@ function CheckOut() {
       dataAddress2 : address2,
       dataPaymentMethod : option,
       dataPaymentDetails : paymentDetails,
-      dataOrderItems : tempCart,
-      dataSubtotal : subTotal,
-      dataTotal : total,
+      dataOrderItems : cartItems,
+      dataSubtotal : itemsPrice,
+      dataTaxPrice : taxPrice,
+      dataShippingPrice : shippingPrice,
+      dataTotal : totalPrice,
       dataStatus : 0
     }
     fireDB.push(data)
-
-    addtocart.length = 0;
+    toast.success('Order has been placed', {position: toast.POSITION.BOTTOM_LEFT})
+    cartItems.length = 0;
   }
 
   return (
@@ -99,27 +116,27 @@ function CheckOut() {
                 <div id="personal_information" className="checkout__information">
                   <span>Personal Details</span>
                   <label>Full Name</label>
-                  <input type="text" placeholder="Last Name, Given Name M.I" className="checkout__input" onChange={handleName}/>
+                  <input type="text" placeholder="Last Name, Given Name M.I" className="checkout__input" onChange={handleName} required/>
                   <label>Email Address</label>
-                  <input type="email" placeholder="your@email.com" className="checkout__input" onChange={handleEmailAdd}/>
+                  <input type="email" placeholder="your@email.com" className="checkout__input" onChange={handleEmailAdd} required/>
                   <label>Contact Number</label>
                   <span className="checkout__input" >
                     <label>+63 9</label>
-                    <input type="text" placeholder="X-XXXX-XXXX" onChange={handleContactNum}/>  
+                    <input type="text" placeholder="X-XXXX-XXXX" onChange={handleContactNum} required/>  
                   </span>
                 </div>
                 <div id="delivery_information" className="checkout__information">
                   <span>Delivery Details</span>
                   <label>Address 1</label>
-                  <input type="text" placeholder="House No., Street, Village/Subdivision, Barangay " className="checkout__input" onChange={handleAddress1}/>
+                  <input type="text" placeholder="House No., Street, Village/Subdivision, Barangay " className="checkout__input" onChange={handleAddress1} required/>
                   <label>Address 2</label>
 
-                  <input type="text" placeholder="City" className="checkout__input" onChange={handleAddress2}/> 
+                  <input type="text" placeholder="City" className="checkout__input" onChange={handleAddress2} required/> 
                 </div>
                 <div id="payment_information" className="checkout__information">
                   <span>Payment Details</span>
                   <label>Payment Method</label>
-                  <select id='payment_option' onChange={handleChange}>
+                  <select id='payment_option' onChange={handleChange} required>
                     <option value="cod">Cash On Delivery (COD)</option>
                     <option value="gcash">GCash Payment</option>
                   </select>
@@ -132,54 +149,39 @@ function CheckOut() {
                               <li>Enter GCash payment reference number below. </li>
                             </ol>
                           </div>
-                          <input type="text" placeholder="GCash Payment Reference Number" onChange={handlePaymentDetails}/> 
+                          <input type="text" placeholder="GCash Payment Reference Number" onChange={handlePaymentDetails} required/> 
                         </>
                       ) : null
                   }
                 </div>
               </div>
               <div id="checkout_cart">
-              {
-                addtocart.length !== 0 ? (
-                <div className="cart__body">
+               {
+                  cartItems.length !== 0 ? (
                     <div id="cart__items">
-                      {
-                        addtocart.map((added,index) => (
-                          <>
-                            <CartContainer 
-                              key={index}
-                              KeyValue={index}
-                              ImgSrc={added.prodImg}
-                              ProdName={added.prodName}
-                              ProdPrice={added.prodPrice}
-                              ProdQty={added.prodQTY}
-                              setSubtotal={setSubtotal}
-                              setTotal={setTotal}
-                            />
-                          </>
-                        ))
-                      }
+                      { cartItems.map((added) => (
+                        <CartContainer key={added.key} added={added} handleAddItemQuantity={handleAddItemQuantity} handleRemoveItemQuantity={handleRemoveItemQuantity} />
+                      ))}
                     </div>
-                  </div>
-                   ) : null
+                  ) : null
                 }
                 <div id="checkout_summary">
                   <div id="subTotal" className="info__div">
                     <span className="checkOut__info">Sub Total</span>
-                    <span>PHP {subTotal}</span>
+                    <span>PHP {Number(itemsPrice).toFixed(2)}</span>
                   </div>
                   <br/>
                   <div id="taxInclusion" className="info__div">
                     <span className="checkOut__info">Value Added Tax</span>
-                    <span>PHP 0.00</span>
+                    <span>PHP {Number(taxPrice).toFixed(2)}</span>
                   </div>
                   <div id="deliveryFee" className="info__div">
                     <span className="checkOut__info">Delivery Fee</span>
-                    <span>PHP 75.00</span>
+                    <span>PHP {Number(shippingPrice).toFixed(2)}</span>
                   </div>
                   <div id="totalAmount" className="info__div">
                     <span className="checkOut__total">Total Amount</span>
-                    <span className="checkOut__total">PHP {total}</span>
+                    <span className="checkOut__total">PHP {Number(totalPrice).toFixed(2)}</span>
                   </div>
                   <br/>
                   <div id="agreement">
@@ -195,7 +197,8 @@ function CheckOut() {
                   {
                     checked ? (
                       <div className="btn__checkOut">
-                        <Link   to={{
+                        <button className="btn" id="place_order" onClick={getData}>Check-out</button>
+                        {/* <Link  to={{
                                   pathname:"/order-successful",
                                   state: {
                                     id: transactionID
@@ -204,7 +207,7 @@ function CheckOut() {
                                 id="place_order" 
                                 className="btn" 
                                 onClick={getData}
-                        >Place Order</Link>
+                        >Place Order</Link> */}
                       </div>
                     ): null
                   }

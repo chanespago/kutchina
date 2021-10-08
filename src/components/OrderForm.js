@@ -101,7 +101,7 @@ class OrderForm extends Component {
                                             <td>{order.prodName}</td>
                                             <td>{order.prodQTY}</td>
                                             <td>{order.prodPrice}</td>
-                                            <td>{Number(order.transPrice).toFixed(2)}</td>
+                                            <td>{Number(Number(order.prodQTY) * Number(order.prodPrice)).toFixed(2)}</td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -121,15 +121,19 @@ class OrderForm extends Component {
                                 <tbody>
                                     <tr>
                                         <th>Sub-total :</th>
-                                        <td>{this.props.dataSubtotal}</td>
+                                        <td className="text__right">{Number(this.props.dataSubtotal).toFixed(2)}</td>
                                     </tr>
                                     <tr>
-                                        <th>Delivery Fee:</th>
-                                        <td>75.00</td>
+                                        <th>Value Added Tax :</th>
+                                        <td className="text__right">{Number(this.props.dataTaxPrice).toFixed(2)}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Delivery Fee :</th>
+                                        <td className="text__right">{Number(this.props.dataShippingPrice).toFixed(2)}</td>
                                     </tr>
                                     <tr>
                                         <th>Total :</th>
-                                        <td>{this.props.dataTotal}</td>
+                                        <td className="text__right">PHP {Number(this.props.dataTotal).toFixed(2)}</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -1,7 +1,6 @@
 a {
   text-decoration: none ;
 }
-
 .wrapper {
   background-color: #fff;
   width: 100vw;
@@ -61,4 +60,23 @@ section {
 }
 .font__Varela {
   font-family: 'Varela Round', sans-serif;
+}
+.bg__theme {
+  background-color: #ff4500;
+}
+.font__theme {
+  color: #ff4500;
+}
+.bg__trigger {
+  background-color: #309c30;
+}
+.text__right {
+  text-align: right;
+}
+
+@media screen and ( max-width: 1024px ) {
+  .wrapper {
+    background-position: center;
+    background-size: contain;
+  }
 }

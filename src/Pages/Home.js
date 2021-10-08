@@ -9,6 +9,7 @@ import KareKare from '../assets/images/karekare.jpg';
 import Section from '../components/Section.js';
 import Card from '../components/Card.js';
 import Footer from '../components/Footer';
+import Display from '../components/Display';
 
 
 function Home() {
@@ -47,7 +48,7 @@ function Home() {
           bodyContent={
             <>
               { topPicks.map(pick => (
-                  <Card 
+                  <Display 
                     key={pick.key}
                     id={pick.key}
                     cardImg={pick.prodImg}

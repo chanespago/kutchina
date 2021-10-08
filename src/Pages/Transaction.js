@@ -8,6 +8,7 @@ import Footer from '../components/Footer'
 import Section from '../components/Section'
 import OrderForm from '../components/OrderForm'
 import download from 'downloadjs';
+import jsPDF from 'jspdf';
 
 function Transaction() {
 
@@ -24,6 +25,8 @@ function Transaction() {
     const[dataPaymentDetails,setDataPaymentDetails] = useState();
     const[dataOrderItems,setDataOrderItems] = useState([]);
     const[dataSubtotal,setDataSubTotal] = useState();
+    const[dataTaxPrice,setDataTaxPrice] = useState();
+    const[dataShippingPrice,setDataShippingPrice] = useState();
     const[dataTotal,setDataTotal] = useState();
     const[dataStatus,setDataStatus] = useState();
 
@@ -39,6 +42,8 @@ function Transaction() {
             setDataPaymentDetails(data.val().dataPaymentDetails);
             setDataOrderItems(data.val().dataOrderItems);
             setDataSubTotal(data.val().dataSubtotal);
+            setDataTaxPrice(data.val().dataTaxPrice);
+            setDataShippingPrice(data.val().dataShippingPrice);
             setDataTotal(data.val().dataTotal);
             setDataStatus(data.val().dataStatus);
         }, function (error) {
@@ -48,17 +53,20 @@ function Transaction() {
     },[transID])
 
     const handlePrint = () =>{
-        htmlToImage.toPng(document.getElementById('success_container'))
-        .then(function (dataUrl) {
-            download(dataUrl, transID + '.png');
-        });
+        // htmlToImage.toPng(document.getElementById('success_container'))
+        // .then(function (dataUrl) {
+        //     download(dataUrl, transID + '.pdf');
+        // });
+
+        var doc = new jsPDF("p", "pt", [500,500]);
+        doc.html(document.querySelector("#success_body_container"))
+        doc.save( transID + '.pdf')
     }
 
     const refreshPage = ()=> {
         setTimeout(()=>{
             window.location.reload(false);
         }, 500);
-        console.log('page to reload')
     }
 
     return (
@@ -83,6 +91,8 @@ function Transaction() {
                             dataPaymentDetails = {dataPaymentDetails}
                             dataOrderItems = {dataOrderItems}
                             dataSubtotal = {dataSubtotal}
+                            dataTaxPrice = {dataTaxPrice}
+                            dataShippingPrice = {dataShippingPrice}
                             dataTotal = {dataTotal}
                             dataStatus = {dataStatus}
                         />

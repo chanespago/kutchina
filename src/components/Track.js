@@ -18,6 +18,8 @@ function Track() {
     const[dataPaymentDetails,setDataPaymentDetails] = useState();
     const[dataOrderItems,setDataOrderItems] = useState([]);
     const[dataSubtotal,setDataSubTotal] = useState();
+    const[dataTaxPrice,setDataTaxPrice] = useState();
+    const[dataShippingPrice,setDataShippingPrice] = useState();
     const[dataTotal,setDataTotal] = useState();
     const[targetStatus,setTargetStatus] = useState();
     const[retStatus,setRetStatus] = useState();
@@ -37,6 +39,8 @@ function Track() {
             setDataPaymentDetails(data.val().dataPaymentDetails);
             setDataOrderItems(data.val().dataOrderItems);
             setDataSubTotal(data.val().dataSubtotal);
+            setDataTaxPrice(data.val().dataTaxPrice);
+            setDataShippingPrice(data.val().dataShippingPrice);
             setDataTotal(data.val().dataTotal);
             setTargetStatus(data.val().dataStatus);
 
@@ -54,8 +58,6 @@ function Track() {
                 retDataStatus = "You got your order. Thank you.";
             }
             setRetStatus(retDataStatus)
-            console.log (data.val().dataStatus)
-            console.log (retDataStatus)
 
         }, function (error) {
             console.log("Error: " + error.code);
@@ -87,6 +89,8 @@ function Track() {
                                 dataPaymentDetails = {dataPaymentDetails}
                                 dataOrderItems = {dataOrderItems}
                                 dataSubtotal = {dataSubtotal}
+                                dataTaxPrice = {dataTaxPrice}
+                                dataShippingPrice = {dataShippingPrice}
                                 dataTotal = {dataTotal}
                             />
                             <label>{retStatus}</label>

@@ -38,6 +38,33 @@
   align-content: center;
   width: 100%;
 }
+#displayBtn {
+  background-color: #ff4500;
+  padding: 4px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#displayBtn > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#displayBtn > a >label {
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
+}
+#displayBtn > a >i {
+  color: #fff;
+  cursor: pointer;
+}
 .product__price {
   font-weight: bold;
   font-size: 13px;
@@ -50,7 +77,6 @@
   cursor: pointer;
 }
 .add__border {
-  background-color: #ff4500;
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -59,6 +85,8 @@
   text-align: center;
 }
 .add__border > i {
+  position: relative;
+  top: 1.5px;
   font-size: 18px;
   color: #fff;
 }

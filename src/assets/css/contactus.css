@@ -31,6 +31,15 @@
   border: none;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
+.contact__form > select {
+  font-family: 'Varela Round', sans-serif;
+  width: 100%;
+  border-radius: 8px;
+  padding: 20px;
+  outline: none;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
 .contact__form > input::placeholder,
 .contact__form > textarea::placeholder {
   color: #000;
