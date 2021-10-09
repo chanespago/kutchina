@@ -14,9 +14,9 @@ function CartContainer(props) {
                 <div className="cart__dets">
                     <span>PHP {added.prodPrice}</span>
                     <div className="cart__qty">
-                        <span onClick={() => handleRemoveItemQuantity(added.key)}>-</span>
+                        <span className="btn" onClick={() => handleRemoveItemQuantity(added.key)}>-</span>
                         <label>{added.prodQTY}</label>
-                        <span className="btn" onClick={() => handleAddItemQuantity(added.key)}>+</span>
+                        <span onClick={() => handleAddItemQuantity(added.key)}>+</span>
                     </div>
                 </div>
             </div>

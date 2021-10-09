@@ -8,13 +8,7 @@ import Footer from '../components/Footer.js';
 
 function Menu(props) {
 
-  const {handleAddtoCart, products} = props
-
-  const[fMenu, setfMenu] = useState([]);
-  
-  let tempMenu;
-
-  const[cartItems, setCartItems] = useState([]);
+  const {handleAddtoCart, products, handleRemovetoCart} = props
 
   return (
     <div className="wrapper">
@@ -31,7 +25,7 @@ function Menu(props) {
             <div className="menu__container">
               <div className="menu__body">
                 { products.map(product => (
-                    <Card key={product.key} product={product} handleAddtoCart={handleAddtoCart}/>
+                    <Card key={product.key} product={product} handleAddtoCart={handleAddtoCart} handleRemovetoCart={handleRemovetoCart}/>
                   ) ) }
               </div>
             </div>

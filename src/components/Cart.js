@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import { Link } from "react-router-dom";
-import {addtocart} from './addtocart';
 import CartContainer from './CartContainer';
 
 function Cart(props) {
@@ -10,23 +9,6 @@ function Cart(props) {
     const taxPrice = itemsPrice * 0.05;
     const shippingPrice = itemsPrice > 500 ? 0 : 50
     const totalPrice = itemsPrice + taxPrice + shippingPrice
-
-    const[subTotal,setSubtotal] = useState(0);
-    const[total,setTotal] = useState(0);
-
-    useEffect(() => {
-
-    }, [addtocart])
-    
-    const cleanCheckout = () => {
-        let tempCart = addtocart.filter(element => element.prodQTY !== 0)
-        addtocart.length = 0;
-
-        for (let i = 0; i < tempCart.length; i++) {
-            addtocart.push(tempCart[i]);
-          }
-        console.log(addtocart)
-    }
 
     return (
         <>

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState } from 'react'
 import { HashRouter , Switch, Route, Link } from "react-router-dom";
 import ReactModal from 'react-modal';
 
@@ -13,7 +13,6 @@ import TermsConditions from '../Pages/TermsConditions.js';
 import ScrollToTop from './ScrollToTop.js';
 import Cart from './Cart.js';
 import Transaction from '../Pages/Transaction.js';
-import {addtocart} from '../components/addtocart.js';
 import data from './data.js';
 
 
@@ -37,8 +36,16 @@ function Navbar() {
   const handleAddtoCart = (item) => {
     const itemIndex = products.find((x) => x.key === item)
     setCartItems([...cartItems, {...itemIndex, triggered: itemIndex.triggered = true}]);
-    console.log(products)
+    console.log(itemIndex)
   }
+
+  const handleRemovetoCart = (item) => {
+    setCartItems(cartItems.filter((x) => x.key !== item))
+    let prodIndex = products.find((x) => x.key === item)
+    prodIndex.triggered = false;
+    console.log(prodIndex)
+  }
+
 
   const handleAddItemQuantity = (item) => {
     const itemIndex = cartItems.find((x) => x.key === item)
@@ -82,11 +89,13 @@ function Navbar() {
           <Menu 
             products={products}
             handleAddtoCart={handleAddtoCart}
+            handleRemovetoCart={handleRemovetoCart}
             />
         </Route>
         <Route path="/checkout" exact>
           <CheckOut 
             cartItems={cartItems}
+            products={products}
             handleAddItemQuantity={handleAddItemQuantity}
             handleRemoveItemQuantity={handleRemoveItemQuantity}
             />

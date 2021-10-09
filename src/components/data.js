@@ -31,7 +31,8 @@ const data = {
 			prodPrice: '130.00' ,
 			prodQTY: 1 ,
 			transPrice: 130,
-			triggered: false
+			triggered: false,
+			pick: 'yes'
 		},
 		{
 			key: 'arozcaldo',
@@ -42,7 +43,8 @@ const data = {
 			prodPrice: '60.00',
 			prodQTY: 1 ,
 			transPrice: 60,
-			triggered: false
+			triggered: false,
+			pick: 'no'
 		},
 		{
 			key: 'bbq',
@@ -53,7 +55,8 @@ const data = {
 			prodPrice: '90.00',
 			prodQTY: 1 ,
 			transPrice: 90,
-			triggered: false
+			triggered: false,
+			pick: 'no'
 		},
 		{
 			key: 'bistektagalog',
@@ -64,7 +67,8 @@ const data = {
 			prodPrice: '130.00',
 			prodQTY: 1 ,
 			transPrice: 130,
-			triggered: false
+			triggered: false,
+			pick: 'no'
 		},
 		{
 			key: 'bulalo',
@@ -75,7 +79,8 @@ const data = {
 			prodPrice: '130.00',
 			prodQTY: 1 ,
 			transPrice: 130,
-			triggered: false
+			triggered: false,
+			pick: 'no'
 		},
 		{
 			key: 'chickeninasal',
@@ -86,7 +91,8 @@ const data = {
 			prodPrice: '130.00',
 			prodQTY: 1 ,
 			transPrice: 130,
-			triggered: false
+			triggered: false,
+			pick: 'no'
 		},
 		{
 			key: 'dinuguan',
@@ -97,7 +103,8 @@ const data = {
 			prodPrice: '130.00',
 			prodQTY: 1 ,
 			transPrice: 130,
-			triggered: false
+			triggered: false,
+			pick: 'no'
 		},
 		{
 			key: 'ginataanggulay',
@@ -108,7 +115,8 @@ const data = {
 			prodPrice: '90.00',
 			prodQTY: 1 ,
 			transPrice: 90,
-			triggered: false
+			triggered: false,
+			pick: 'no'
 		},
 		{
 			key: 'liempoinihaw',
@@ -119,7 +127,8 @@ const data = {
 			prodPrice: '170.00',
 			prodQTY: 1 ,
 			transPrice: 170,
-			triggered: false
+			triggered: false,
+			pick: 'no'
 		},
 		{
 			key: 'kaldereta',
@@ -130,7 +139,8 @@ const data = {
 			prodPrice: '180.00',
 			prodQTY: 1 ,
 			transPrice: 180,
-			triggered: false
+			triggered: false,
+			pick: 'yes'
 		},
 		{
 			key: 'karekare',
@@ -141,7 +151,8 @@ const data = {
 			prodPrice: '180.00',
 			prodQTY: 1 ,
 			transPrice: 180,
-			triggered: false
+			triggered: false,
+			pick: 'yes'
 		},
 		{
 			key: 'kilawin',
@@ -152,7 +163,8 @@ const data = {
 			prodPrice: '90.00',
 			prodQTY: 1 ,
 			transPrice: 90,
-			triggered: false
+			triggered: false,
+			pick: 'no'
 		},
 		{
 			key: 'krispipata',
@@ -163,7 +175,8 @@ const data = {
 			prodPrice: '170.00',
 			prodQTY: 1 ,
 			transPrice: 170,
-			triggered: false
+			triggered: false,
+			pick: 'no'
 		},
 		{
 			key: 'lechonkawali',
@@ -174,7 +187,8 @@ const data = {
 			prodPrice: '210.00',
 			prodQTY: 1 ,
 			transPrice: 210,
-			triggered: false
+			triggered: false,
+			pick: 'no'
 		},
 		{
 			key: 'lumpia',
@@ -185,7 +199,8 @@ const data = {
 			prodPrice: '120.00',
 			prodQTY: 1 ,
 			transPrice: 120,
-			triggered: false
+			triggered: false,
+			pick: 'no'
 		},
 		{
 			key: 'palabok',
@@ -195,7 +210,10 @@ const data = {
 			prodType: 'siesta' ,
 			prodPrice: '60.00',
 			prodQTY: 1 ,
-			transPrice: '60.00'},
+			transPrice: 60,
+			triggered: false,
+			pick: 'no'
+		},
 		{
 			key: 'pancitguisado',
 			prodImg: 'https://res.cloudinary.com/chanespago/image/upload/v1633679638/kutchinarapp/pancitguisado_rtyy6t.jpg',
@@ -205,7 +223,8 @@ const data = {
 			prodPrice: '60.00',
 			prodQTY: 1 ,
 			transPrice: 60,
-			triggered: false
+			triggered: false,
+			pick: 'no'
 		},
 		{
 			key: 'sinigang',
@@ -216,7 +235,8 @@ const data = {
 			prodPrice: '210.00',
 			prodQTY: 1 ,
 			transPrice: 210,
-			triggered: false
+			triggered: false,
+			pick: 'yes'
 		},
 		{
 			key: 'sisig',
@@ -227,7 +247,8 @@ const data = {
 			prodPrice: '210.00',
 			prodQTY: 1 ,
 			transPrice: 210,
-			triggered: false
+			triggered: false,
+			pick: 'no'
 		},
 		{
 			key: 'sopas',
@@ -238,7 +259,8 @@ const data = {
 			prodPrice: '60.00',
 			prodQTY: 1 ,
 			transPrice: 60,
-			triggered: false
+			triggered: false,
+			pick: 'no'
 		},
 		{
 			key: 'tinola',
@@ -249,7 +271,8 @@ const data = {
 			prodPrice: '130.00',
 			prodQTY: 1 ,
 			transPrice: 130,
-			triggered: false
+			triggered: false,
+			pick: 'no'
 		}
 	]
 }

@@ -10,7 +10,7 @@ import OrderForm from '../components/OrderForm'
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
-function Transaction() {
+function Transaction(props) {
 
     const location = useLocation();
     const {id} = location.state

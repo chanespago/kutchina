@@ -1,18 +1,17 @@
 import React, {useState} from 'react'
+import { Link, useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import fireDB from '../util/firebase'
 
 import Section from '../components/Section.js';
 import Footer from '../components/Footer.js';
 import CartContainer from '../components/CartContainer.js';
-
-import {addtocart} from '../components/addtocart.js';
-import { Link, useHistory } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import data from '../components/data';
 
 function CheckOut(props) {
 
   const history = useHistory();
-  const { cartItems, handleAddItemQuantity, handleRemoveItemQuantity } = props
+  const { products, cartItems, handleAddItemQuantity, handleRemoveItemQuantity } = props
   const itemsPrice = cartItems.reduce((a,c) => a + c.transPrice * c.prodQTY, 0)
   const taxPrice = itemsPrice * 0.05;
   const shippingPrice = itemsPrice > 500 ? 0 : 50
@@ -97,7 +96,16 @@ function CheckOut(props) {
     }
     fireDB.push(data)
     toast.success('Order has been placed', {position: toast.POSITION.BOTTOM_LEFT})
+    resetEverything();
+
+    console.log(products)
+  }
+
+  const resetEverything = () => {
     cartItems.length = 0;
+    let prodIndex = products.find((x) => x.triggered === true)
+    prodIndex.triggered = false;
+    console.log(products)
   }
 
   return (
@@ -111,7 +119,7 @@ function CheckOut(props) {
         }
         bodyContent={
           <>
-            <div id="checkout_form">
+            <form id="checkout_form" onSubmit={getData}>
               <div id="checkout_container">
                 <div id="personal_information" className="checkout__information">
                   <span>Personal Details</span>
@@ -200,24 +208,14 @@ function CheckOut(props) {
                   {
                     checked ? (
                       <div className="btn__checkOut">
-                        <button className="btn" id="place_order" onClick={getData}>Check-out</button>
-                        {/* <Link  to={{
-                                  pathname:"/order-successful",
-                                  state: {
-                                    id: transactionID
-                                  }
-                                }}
-                                id="place_order" 
-                                className="btn" 
-                                onClick={getData}
-                        >Place Order</Link> */}
+                        <input type="submit" className="btn" id="place_order" value="Check-out"/>
                       </div>
                     ): null
                   }
                   
                 </div>
               </div>
-            </div>
+            </form>
           </>
         }
       />

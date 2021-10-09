@@ -1,12 +1,10 @@
 import React from 'react'
+import {toast} from 'react-toastify';
+import emailjs from 'emailjs-com';
 
 import Section from '../components/Section'
 import Footer from '../components/Footer'
 import Jumbotron from '../components/Jumbotron'
-import emailjs from 'emailjs-com';
-import {toast} from 'react-toastify';
-
-
 
 function ContactUs() {
 

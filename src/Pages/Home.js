@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react'
 import { Link } from "react-router-dom";
+import data from '../components/data.js';
 
 import Adobo from '../assets/images/adobo.jpg';
 import Kaldereta from '../assets/images/kaldereta.jpg';
@@ -7,20 +8,15 @@ import Sinigang from '../assets/images/sinigang.jpg';
 import KareKare from '../assets/images/karekare.jpg';
 
 import Section from '../components/Section.js';
-import Card from '../components/Card.js';
 import Footer from '../components/Footer';
 import Display from '../components/Display';
 
 
 function Home() {
-  
-  const topPicks = [
-    {key:'adobo', prodImg:Adobo, prodAlt:Adobo, prodName: 'Chicken Adobo', prodPrice: '130.00'},
-    {key:'kaldereta', prodImg:Kaldereta, prodAlt:Kaldereta, prodName: 'Kaldereta', prodPrice: '180.00'},
-    {key:'sinigang', prodImg:Sinigang, prodAlt:Sinigang, prodName: 'Sinigang', prodPrice: '210.00'},
-    {key:'karekare', prodImg:KareKare, prodAlt:KareKare, prodName: 'Kare-kare', prodPrice: '180.00'}
-  ];
 
+  const {products} = data;
+  
+  const topPicks = [...products.filter((x) => x.pick !== 'no')];
 
   return (
 
