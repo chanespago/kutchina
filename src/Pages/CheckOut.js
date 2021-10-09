@@ -156,6 +156,9 @@ function CheckOut(props) {
                 </div>
               </div>
               <div id="checkout_cart">
+                <div id="personal_information" className="checkout__information">
+                  <span>Cart Items</span>
+                </div>
                {
                   cartItems.length !== 0 ? (
                     <div id="cart__items">

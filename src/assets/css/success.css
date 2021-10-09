@@ -86,6 +86,7 @@ table.customTable {
       font-size: 16px;
       border-radius: 8px;
       margin: 10px;
+      cursor: pointer;
   }
   .btn__Close {
     padding: 10px 20px;

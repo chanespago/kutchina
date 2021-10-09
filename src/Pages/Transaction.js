@@ -7,8 +7,8 @@ import * as htmlToImage from 'html-to-image';
 import Footer from '../components/Footer'
 import Section from '../components/Section'
 import OrderForm from '../components/OrderForm'
-import download from 'downloadjs';
 import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 function Transaction() {
 
@@ -52,15 +52,19 @@ function Transaction() {
 
     },[transID])
 
-    const handlePrint = () =>{
-        // htmlToImage.toPng(document.getElementById('success_container'))
-        // .then(function (dataUrl) {
-        //     download(dataUrl, transID + '.pdf');
-        // });
+    const handlePrint = (rootElementId) =>{
 
-        var doc = new jsPDF("p", "pt", [500,500]);
-        doc.html(document.querySelector("#success_body_container"))
-        doc.save( transID + '.pdf')
+        html2canvas(document.getElementById(rootElementId)).then(function(canvas){
+            var wid, hgt;
+            var img = canvas.toDataURL("image/png", wid = canvas.width, hgt = canvas.height);
+            var hratio = hgt/wid
+            var doc = new jsPDF('p','pt','a4');
+            var width = doc.internal.pageSize.width;    
+            var height = width * hratio
+            doc.addImage(img,'JPEG',0,0, width, height);
+            doc.save(transID+'.pdf');
+        });
+        
     }
 
     const refreshPage = ()=> {
@@ -97,7 +101,7 @@ function Transaction() {
                             dataStatus = {dataStatus}
                         />
                         <div className="success__row">
-                            <button className="btn btn__Save" onClick={handlePrint}>Save a Copy</button>
+                            <button className="btn btn__Save" onClick={()=> handlePrint("success_container")}>Save a Copy</button>
                             <Link to={{pathname:"/"}} onClick={refreshPage} className="btn btn__Close">Close</Link>
                         </div>
                     </>

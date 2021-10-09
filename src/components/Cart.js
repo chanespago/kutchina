@@ -71,7 +71,7 @@ function Cart(props) {
                             </div>
                             <br/>
                             <div className="btn__checkOut">
-                                <Link to="/checkout" id="btn-checkOut" onClick={cleanCheckout} >Checkout</Link>
+                                <Link to="/checkout" id="btn-checkOut" onClick={handleCloseModal} >Checkout</Link>
                             </div>
                         </div>
                     ) : (
