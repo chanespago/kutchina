@@ -25,8 +25,8 @@ toast.configure()
 function App() {
   return (
     <>
-      {/* <Maintenance /> */}
-      <Navbar />
+      <Maintenance />
+      {/* <Navbar /> */}
     </>
 
   );
