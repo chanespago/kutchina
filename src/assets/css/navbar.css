@@ -20,6 +20,9 @@ nav {
   align-content: center;
   position: relative;
   left: 50px;
+  color: orangered;
+  font-size: 48px;
+  font-weight: bold;
 }
 .logo > a {
   text-decoration: none;
