@@ -20,7 +20,7 @@ function Card(props) {
             product.triggered ? (
               <div className="product__add" onClick={()=>handleRemovetoCart(product.key)}>
                 <span className="add__border bg__trigger"><i className='bx bx-minus'></i></span>
-                <span className="add__text">Remove</span>
+                <span className="add__text">Clear</span>
               </div> ) : (
               <div className="product__add" onClick={()=>handleAddtoCart(product.key)}>
                 <span className="add__border bg__theme"><i className='bx bx-plus'></i></span>

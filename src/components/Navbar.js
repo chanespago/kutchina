@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import { HashRouter , Switch, Route, Link } from "react-router-dom";
+import React from 'react'
 import ReactModal from 'react-modal';
+import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from '../Pages/Home.js';
 import Menu from '../Pages/Menu.js';
@@ -10,120 +11,75 @@ import AskUs from '../Pages/AskUs.js';
 import ContactUs from '../Pages/ContactUs.js';
 import PrivacyPolicy from '../Pages/PrivacyPolicy.js';
 import TermsConditions from '../Pages/TermsConditions.js';
+import Maintenance from '../Pages/Maintenance.js';
+import Transaction from '../Pages/Transaction.js';
 import ScrollToTop from './ScrollToTop.js';
 import Cart from './Cart.js';
-import Transaction from '../Pages/Transaction.js';
-import data from './data.js';
-
 
 ReactModal.setAppElement('#root');
-function Navbar() {
+function Navbar(props) {
 
-  const {products} = data;
-
-  const[showModal, setShowModal] = useState(false);
-  const[clicked, setClicked] = useState();
-  const[cartItems, setCartItems] = useState([]);
-
-  const handleOpenModal = () => {
-    setShowModal(true);
-  }
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  }
-
-  const handleAddtoCart = (item) => {
-    const itemIndex = products.find((x) => x.key === item)
-    setCartItems([...cartItems, {...itemIndex, triggered: itemIndex.triggered = true}]);
-    console.log(itemIndex)
-  }
-
-  const handleRemovetoCart = (item) => {
-    setCartItems(cartItems.filter((x) => x.key !== item))
-    let prodIndex = products.find((x) => x.key === item)
-    prodIndex.triggered = false;
-    console.log(prodIndex)
-  }
-
-
-  const handleAddItemQuantity = (item) => {
-    const itemIndex = cartItems.find((x) => x.key === item)
-    if (itemIndex) {
-      setCartItems(
-        cartItems.map((x) =>
-        x.key === item ? {...itemIndex, prodQTY: itemIndex.prodQTY + 1} : x
-        )
-    )}
-    console.log(cartItems)
-  }
-
-  const handleRemoveItemQuantity = (item) => {
-    const itemIndex = cartItems.find((x) => x.key === item)
-    if(itemIndex.prodQTY === 1){
-      setCartItems(cartItems.filter((x) => x.key !== item))
-      let prodIndex = products.find((x) => x.key === item)
-      prodIndex.triggered = false;
-      console.log(products)
-    } else {
-      if (itemIndex) {
-        setCartItems(
-          cartItems.map((x) =>
-          x.key === item ? {...itemIndex, prodQTY: itemIndex.prodQTY - 1} : x
-          )
-      )}
-    }
-  }
-
+  const {
+    products,
+    cartItems,
+    showModal,
+    handleAddtoCart,
+    handleRemovetoCart,
+    handleAddItemQuantity,
+    handleRemoveItemQuantity,
+    handleOpenModal,
+    handleCloseModal
+  } = props;
+  
   return (
-    <HashRouter >
-      <ScrollToTop />
-      <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/track-order" exact>
-          <OrderTrack />
-        </Route>
-        <Route path="/menu" exact>
-          <Menu 
-            products={products}
-            handleAddtoCart={handleAddtoCart}
-            handleRemovetoCart={handleRemovetoCart}
-            />
-        </Route>
-        <Route path="/checkout" exact>
-          <CheckOut 
-            cartItems={cartItems}
-            products={products}
-            handleAddItemQuantity={handleAddItemQuantity}
-            handleRemoveItemQuantity={handleRemoveItemQuantity}
-            />
-        </Route>
-        <Route path="/ask-us" exact>
-          <AskUs />
-        </Route>
-        <Route path="/contact-us" exact>
-          <ContactUs />
-        </Route>
-        <Route path="/privacy-policy" exact>
-          <PrivacyPolicy />
-        </Route>
-        <Route path="/terms-conditions" exact>
-          <TermsConditions />
-        </Route>
-        <Route path="/order-successful" exact>
-          <Transaction />
-        </Route>
-      </Switch>
+    <Router >
+        <ScrollToTop />
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/track-order" exact>
+            <OrderTrack />
+          </Route>
+          <Route path="/menu" exact>
+            <Menu 
+              products={products}
+              handleAddtoCart={handleAddtoCart}
+              handleRemovetoCart={handleRemovetoCart}
+              />
+          </Route>
+          <Route path="/checkout" exact>
+            <CheckOut 
+              cartItems={cartItems}
+              products={products}
+              handleAddItemQuantity={handleAddItemQuantity}
+              handleRemoveItemQuantity={handleRemoveItemQuantity}
+              />
+          </Route>
+          <Route path="/ask-us" exact>
+            <AskUs />
+          </Route>
+          <Route path="/contact-us" exact>
+            <ContactUs />
+          </Route>
+          <Route path="/privacy-policy" exact>
+            <PrivacyPolicy />
+          </Route>
+          <Route path="/terms-conditions" exact>
+            <TermsConditions />
+          </Route>
+          <Route path="/order-successful" exact>
+            <Transaction />
+          </Route>
+        </Switch>
 
-      <ReactModal 
+        <ReactModal 
           isOpen={showModal}
           contentLabel="Kutchina Cart"
           className="Modal"
           overlayClassName="Overlay"
           onRequestClose={handleCloseModal}
-      >
+        >
         <Cart 
           cartItems={cartItems}
           handleCloseModal={handleCloseModal}
@@ -131,10 +87,9 @@ function Navbar() {
           handleRemoveItemQuantity={handleRemoveItemQuantity}
         />
       </ReactModal>
-
       <nav>
         <div className="logo">
-          <Link to="/">kutchinarapp</Link>
+          <Link to="/"  onClick={handleCloseModal}>kutchinarapp</Link>
         </div>
         <ul className="nav__links">
           <li className="nav__item"  onClick={handleCloseModal}>
@@ -150,8 +105,8 @@ function Navbar() {
           </li>
         </ul>
       </nav>
-    </HashRouter >
-  )
+      </Router>
+  );
 }
 
 export default Navbar

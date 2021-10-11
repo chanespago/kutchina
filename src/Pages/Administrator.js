@@ -1,10 +1,11 @@
 import React from 'react'
+import Login from './Login'
 
 function Administrator() {
     return (
-        <div>
-            
-        </div>
+        <>
+            <Login />
+        </>
     )
 }
 
