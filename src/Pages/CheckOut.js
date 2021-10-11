@@ -6,7 +6,6 @@ import fireDB from '../util/firebase'
 import Section from '../components/Section.js';
 import Footer from '../components/Footer.js';
 import CartContainer from '../components/CartContainer.js';
-import data from '../components/data';
 
 function CheckOut(props) {
 

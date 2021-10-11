@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
 import { Link } from 'react-router-dom';
 import fireDB from '../util/firebase'
-import * as htmlToImage from 'html-to-image';
 
 import Footer from '../components/Footer'
 import Section from '../components/Section'
@@ -10,7 +9,7 @@ import OrderForm from '../components/OrderForm'
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
-function Transaction(props) {
+function Transaction() {
 
     const location = useLocation();
     const {id} = location.state

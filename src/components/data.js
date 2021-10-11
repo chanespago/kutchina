@@ -1,25 +1,3 @@
-import Adobo from '../assets/images/adobo.jpg';
-import Arozcaldo from '../assets/images/arozcaldo.jpg'
-import BBQ from '../assets/images/bbq.jpg';
-import BistekTagalog from '../assets/images/bistektagalog.jpg';
-import Bulalo from '../assets/images/bulalo.jpg';
-import ChickenInasal from '../assets/images/chickeninasal.jpg';
-import Dinuguan from '../assets/images/dinuguan.jpg';
-import GinataangGulay from '../assets/images/ginataanggulay.jpg';
-import LiempoInihaw from '../assets/images/inihawnaliempo.jpg';
-import Kaldereta from '../assets/images/kaldereta.jpg';
-import KareKare from '../assets/images/karekare.jpg';
-import Kilawin from '../assets/images/kilawin.jpg';
-import KrispiPata from '../assets/images/krispipata.jpg';
-import LechonKawali from '../assets/images/lechonkawali.jpg';
-import Lumpia from '../assets/images/lumpia.jpg';
-import Palabok from '../assets/images/palabok.jpg';
-import PancitGuisado from '../assets/images/pancitguisado.jpg';
-import Sinigang from '../assets/images/sinigang.jpg';
-import Sisig from '../assets/images/sisig.jpg';
-import Sopas from '../assets/images/sopas.jpg';
-import Tinola from '../assets/images/tinola.jpg';
-
 const data = {
 	products: [
 		{
